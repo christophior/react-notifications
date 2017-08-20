@@ -1,0 +1,107 @@
+.App {
+  text-align: center;
+}
+
+.header {
+  background-color: #222;
+  height: 70px;
+  padding: 20px;
+  color: white;
+}
+
+
+button {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+
+button:hover {
+  border-color: #333;
+}
+
+button:active {
+  color: #fff;
+  background-color: #098cfd;
+}
+
+/* Popover */
+.Popover-body {
+  margin-top: -1px;
+  padding: 1em;
+  border: 1px solid #888;
+  border-radius: 8px;
+  background: #f7f7f7;
+}
+
+.Popover-tipShape {
+  fill: #f7f7f7;
+  stroke: #333;
+  fill-rule:evenodd;
+}
+
+.tab-list {
+  border: 1px solid #929292;
+  border-radius: 5px;
+  margin: 0 0 10px;
+  padding: 0;
+}
+
+.left-tab, .right-tab {
+  display: inline-block;
+  position: relative;
+  list-style: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  background: white;
+  color: #5a5a5a;
+}
+
+.left-tab {
+  border-radius: 5px 0 0 5px;
+}
+.right-tab {
+  border-radius: 0 5px 5px 0;
+}
+
+.selected-tab {
+  background: hsl(210, 65%, 43%);
+  color: white;
+  font-weight: 400;
+}
+
+.panel {
+  display: none;
+}
+
+.panel ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.panel li {
+  list-style-type: none;
+  border: 1px solid #929292;
+  margin-bottom: 20px;
+  padding: 20px 15px;
+  border-radius: 5px;
+  background: white;
+} 
+
+.selected-panel {
+  display: block;
+}
