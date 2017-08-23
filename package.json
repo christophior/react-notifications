@@ -15,7 +15,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "deploy": "git subtree push --prefix build/ origin gh-pages"
+    "deploy": "git subtree push --prefix build/ origin gh-pages",
+    "yarn": "yarn install --ignore-engines --no-lockfile"
   },
   "homepage": "."
 }

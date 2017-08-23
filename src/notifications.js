@@ -2,8 +2,21 @@ import React, { Component } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Popover from 'react-popover'
 
-const renderLi = (e, i) => {
-	return <li key={i}>notification {e}</li>
+const renderNotification = (e, i) => {
+	// just changing color for different messages
+	var headerClass = ['four', 'five'].includes(e) ? 'notification_header notification_header_smc' : 'notification_header';
+	return (
+		<li key={i} className="notification">
+			<div className={headerClass}>
+				Notification {e}
+				<span className="vx_icon vx_icon-small vx_icon-close-small notification-dismiss"></span>
+			</div>
+			<div className="notification_description">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+			</div>
+			<a href="#" className="notification_link">click here</a>
+		</li>
+	);
 };
 
 class Notifications extends Component {
@@ -41,12 +54,12 @@ class Notifications extends Component {
 
 						<TabPanel className='panel'>
 							<ul>
-								{ ['one', 'two', 'three'].map(renderLi) }
+								{ ['one', 'two', 'three'].map(renderNotification) }
 							</ul>
 						</TabPanel>
 						<TabPanel className='panel'>
 							<ul>
-								{['four', 'five'].map(renderLi)}
+								{['four', 'five'].map(renderNotification)}
 							</ul>
 						</TabPanel>
 					</Tabs>
