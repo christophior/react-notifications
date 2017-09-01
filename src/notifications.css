@@ -83,6 +83,7 @@ button:active {
   color: #5a5a5a;
   width: 50%;
   text-align: center;
+  white-space: nowrap;
 }
 
 .left-tab {
@@ -157,4 +158,13 @@ button:active {
 
 .selected-panel {
   display: block;
+}
+
+.notification-leave {
+  opacity: ;
+}
+
+.notification-leave.notification-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
 }
