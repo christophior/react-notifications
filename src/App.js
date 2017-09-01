@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './notifications.css';
 import Notifications from './notifications.js';
 
 class App extends Component {
