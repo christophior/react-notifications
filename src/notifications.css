@@ -1,3 +1,8 @@
+:root {
+  --border-color: #CBD2D6;
+  --bg-color: #F5F7FA;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -10,7 +15,7 @@ body {
 
 .header {
   background-color: #222;
-  height: 70px;
+  height: 100px;
   padding: 20px;
   color: white;
 }
@@ -49,21 +54,22 @@ button:active {
 .Popover-body {
   margin-top: -1px;
   padding: 1em;
-  border: 1px solid #888;
+  border: 1px solid var(--border-color);
   border-radius: 8px;
-  background: #f7f7f7;
+  background: var(--bg-color);
+  max-width: 360px;
 }
 
 .Popover-tipShape {
   fill: #f7f7f7;
-  stroke: #333;
+  stroke: #CBD2D6;
   fill-rule:evenodd;
 }
 
 .tab-list {
-  border: 1px solid #929292;
+  border: 1px solid var(--border-color);
   border-radius: 5px;
-  margin: 0 0 10px;
+  margin: 0 0 15px;
   padding: 0;
 }
 
@@ -75,6 +81,8 @@ button:active {
   cursor: pointer;
   background: white;
   color: #5a5a5a;
+  width: 50%;
+  text-align: center;
 }
 
 .left-tab {
@@ -96,17 +104,56 @@ button:active {
 
 .panel ul {
   list-style-type: none;
-  padding-left: 0;
+  padding-left: 0 !important;
+  margin-left: 0;
 }
 
-.panel li {
+.notification {
   list-style-type: none;
-  border: 1px solid #929292;
+  border: 1px solid var(--border-color);
   margin-bottom: 20px;
-  padding: 20px 15px;
   border-radius: 5px;
   background: white;
-} 
+}
+
+.notification_header {
+  height: 40px;
+  padding: 10px 20px;
+  color: #640487;
+  font-weight: 500;
+}
+
+.notification_header_smc {
+  color: #D20000;
+}
+
+.notification-dismiss:before {
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  display: inline-block;
+  position: relative;
+  top: 10px;
+  float: right;
+  cursor: pointer;
+  color: black;
+}
+
+.notification_description {
+  padding: 0px 20px 10px 20px;
+}
+
+.notification_link {
+  display: block;
+  border-top: 1px solid var(--border-color);
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  text-decoration: none;
+  line-height: 40px;
+  color: #0070BA;
+  font-weight: bold;
+}
 
 .selected-panel {
   display: block;
