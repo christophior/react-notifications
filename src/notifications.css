@@ -117,11 +117,19 @@ button:active {
   background: white;
 }
 
+.notification_header, .notification_empty_header {
+  padding: 10px 20px;
+  font-weight: 500;
+}
+
 .notification_header {
   height: 40px;
-  padding: 10px 20px;
   color: #640487;
-  font-weight: 500;
+}
+
+.notification_empty_header {
+  font-size: 20px;
+  text-align: center;
 }
 
 .notification_header_smc {
@@ -140,8 +148,12 @@ button:active {
   color: black;
 }
 
-.notification_description {
+.notification_description, .notification_empty_description {
   padding: 0px 20px 10px 20px;
+}
+
+.notification_empty_description {
+  text-align: center;
 }
 
 .notification_link {
@@ -161,10 +173,20 @@ button:active {
 }
 
 .notification-leave {
-  opacity: ;
+  opacity: 1;
 }
 
 .notification-leave.notification-leave-active {
   opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
+.notification-enter, .notification-appear {
+  opacity: 0.01;
+}
+
+.notification-enter.notification-enter-active,
+.notification-appear.notification-appear-active {
+  opacity: 1;
   transition: opacity 300ms ease-in;
 }

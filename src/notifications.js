@@ -3,6 +3,16 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Popover from 'react-popover'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
+const allHidden = (notifications, notificationType) => {
+	notifications.forEach((n) => {
+		if (n && n.type === notificationType) {
+			return false;
+		}
+	});
+	return true;
+};
+
+
 class Notifications extends Component {
 	constructor(props) {
 		super(props);
@@ -11,32 +21,35 @@ class Notifications extends Component {
 			notifications: [
 				{
 					id: 1,
+					type: "notification",
 					hidden: false,
 					header: "Notification 1",
 					description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ut labore et dolore magna aliqua."
 				},
 				{
 					id: 2,
+					type: "notification",
 					hidden: false,
 					header: "Notification 2",
 					description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ut labore et dolore magna aliqua."
 				},
 				{
 					id: 3,
+					type: "notification",
 					hidden: false,
 					header: "Notification 3",
 					description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ut labore et dolore magna aliqua."
-				}
-			],
-			messages: [
+				},
 				{
 					id: 4,
+					type: "message",
 					hidden: false,
 					header: "Notification 4",
 					description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ut labore et dolore magna aliqua."
 				},
 				{
 					id: 5,
+					type: "message",
 					hidden: false,
 					header: "Notification 5",
 					description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ut labore et dolore magna aliqua."
@@ -47,6 +60,7 @@ class Notifications extends Component {
 		this.dismissNotification = this.dismissNotification.bind(this);
 		this.closePopover = this.closePopover.bind(this);
 		this.renderNotification = this.renderNotification.bind(this);
+		this.renderEmptyMessage = this.renderEmptyMessage.bind(this);
 	}
 	handleClick (e) {
 		this.setState({
@@ -57,8 +71,8 @@ class Notifications extends Component {
 		this.setState((prevState) => {
 			console.log(prevState);
 			for (var i = 0; i<prevState.notifications.length; i++) {
-				if (prevState.notifications[i].id === id) {
-					prevState.notifications[i].hidden = true;
+				if (prevState.notifications[i] && prevState.notifications[i].id === id) {
+					delete prevState.notifications[i];
 					return prevState;
 				}
 			}
@@ -70,10 +84,10 @@ class Notifications extends Component {
 			open: false
 		})
 	}
-	renderNotification({id, hidden, header, description}) {
+	renderNotification({id, type, hidden, header, description}, typeToRender) {
 		var headerClass = 'notification_header';
 		return (
-			hidden ? null :
+			hidden || type !== typeToRender ? null :
 			<li key={id} className="notification">
 				<div className={headerClass}>
 					{header}
@@ -83,6 +97,18 @@ class Notifications extends Component {
 					{description}
 				</div>
 				<a href="#" className="notification_link">click here</a>
+			</li>
+		);
+	}
+	renderEmptyMessage(message) {
+		return (
+			<li className="notification">
+				<div className="notification_empty_header">
+					{ message }
+				</div>
+				<div className="notification_empty_description">
+					But check out some handy tips and tricks below.
+				</div>
 			</li>
 		);
 	}
@@ -104,10 +130,13 @@ class Notifications extends Component {
 								<ReactCSSTransitionGroup
 									transitionName="notification"
 									transitionAppear={false}
-									transitionEnter={false}
-									transitionLeave={true}
+									transitionEnterTimeout={300}
 									transitionLeaveTimeout={300}>
-									{ this.state.notifications.map(this.renderNotification) }
+									{
+										this.state.notifications.every(e => e === undefined || e.type === "message") ?
+										this.renderEmptyMessage("You don't have any new notifications") :
+										this.state.notifications.map(n => this.renderNotification(n, "notification"))
+									}
 								</ReactCSSTransitionGroup>
 							</ul>
 						</TabPanel>
@@ -116,10 +145,13 @@ class Notifications extends Component {
 								<ReactCSSTransitionGroup
 									transitionName="notification"
 									transitionAppear={false}
-									transitionEnter={false}
-									transitionLeave={true}
+									transitionEnterTimeout={300}
 									transitionLeaveTimeout={300}>
-									{ this.state.messages.map(this.renderNotification) }
+									{
+										this.state.notifications.every(e => e === undefined || e.type === "notification") ?
+										this.renderEmptyMessage("You don't have any new secure messages") :
+										this.state.notifications.map(n => this.renderNotification(n, "message"))
+									}
 								</ReactCSSTransitionGroup>
 							</ul>
 						</TabPanel>
