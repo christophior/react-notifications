@@ -56,38 +56,8 @@ var Notifications = function (_Component) {
 		var _this = _possibleConstructorReturn(this, (Notifications.__proto__ || Object.getPrototypeOf(Notifications)).call(this, props));
 
 		_this.state = {
-			open: true,
-			notifications: [{
-				id: 1,
-				type: "notification",
-				hidden: false,
-				header: "Notification 1",
-				description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ut labore et dolore magna aliqua."
-			}, {
-				id: 2,
-				type: "notification",
-				hidden: false,
-				header: "Notification 2",
-				description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ut labore et dolore magna aliqua."
-			}, {
-				id: 3,
-				type: "notification",
-				hidden: false,
-				header: "Notification 3",
-				description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ut labore et dolore magna aliqua."
-			}, {
-				id: 4,
-				type: "message",
-				hidden: false,
-				header: "Notification 4",
-				description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ut labore et dolore magna aliqua."
-			}, {
-				id: 5,
-				type: "message",
-				hidden: false,
-				header: "Notification 5",
-				description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ut labore et dolore magna aliqua."
-			}]
+			open: props.open,
+			notifications: props.notifications
 		};
 		_this.handleClick = _this.handleClick.bind(_this);
 		_this.dismissNotification = _this.dismissNotification.bind(_this);
