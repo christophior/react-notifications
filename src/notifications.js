@@ -12,6 +12,16 @@ const allHidden = (notifications, notificationType) => {
 	return true;
 };
 
+const getCount = (notifications, notificationType) => {
+	let count = 0;
+	notifications.forEach((n) => {
+		if (n && n.type === notificationType) {
+			count += 1;
+		}
+	});
+	return count;
+};
+
 
 class Notifications extends Component {
 	constructor(props) {
@@ -121,8 +131,8 @@ class Notifications extends Component {
 				body={
 					<Tabs selectedTabClassName='selected-tab' selectedTabPanelClassName='selected-panel'>
 						<TabList className='tab-list'>
-							<Tab className='left-tab'>Notifications (3)</Tab>
-							<Tab className='right-tab'>Messages (2)</Tab>
+							<Tab className='left-tab'>Notifications ({ getCount(this.state.notifications, "notification") })</Tab>
+							<Tab className='right-tab'>Messages ({ getCount(this.state.notifications, "message") })</Tab>
 						</TabList>
 
 						<TabPanel className='panel'>
