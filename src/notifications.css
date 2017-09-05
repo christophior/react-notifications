@@ -3,24 +3,6 @@
   --bg-color: #F5F7FA;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-}
-
-.App {
-  text-align: center;
-}
-
-.header {
-  background-color: #222;
-  height: 100px;
-  padding: 20px;
-  color: white;
-}
-
-
 button {
   display: inline-block;
   padding: 6px 12px;
