@@ -3,15 +3,6 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Popover from 'react-popover'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-const allHidden = (notifications, notificationType) => {
-	notifications.forEach((n) => {
-		if (n && n.type === notificationType) {
-			return false;
-		}
-	});
-	return true;
-};
-
 const getCount = (notifications, notificationType) => {
 	let count = 0;
 	notifications.forEach((n) => {
@@ -21,7 +12,6 @@ const getCount = (notifications, notificationType) => {
 	});
 	return count;
 };
-
 
 class Notifications extends Component {
 	constructor(props) {
@@ -43,7 +33,6 @@ class Notifications extends Component {
 	}
 	dismissNotification(id) {
 		this.setState((prevState) => {
-			console.log(prevState);
 			for (var i = 0; i<prevState.notifications.length; i++) {
 				if (prevState.notifications[i] && prevState.notifications[i].id === id) {
 					delete prevState.notifications[i];
@@ -58,12 +47,11 @@ class Notifications extends Component {
 			open: false
 		})
 	}
-	renderNotification({id, type, hidden, header, description}, typeToRender) {
-		var headerClass = 'notification_header';
+	renderNotification({id, type, header, description}, typeToRender) {
 		return (
-			hidden || type !== typeToRender ? null :
+			type !== typeToRender ? null :
 			<li key={id} className="notification">
-				<div className={headerClass}>
+				<div className="notification_header">
 					{header}
 					<span className="vx_icon vx_icon-small vx_icon-close-small notification-dismiss" onClick={() => this.dismissNotification(id)}></span>
 				</div>
