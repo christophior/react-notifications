@@ -20,7 +20,7 @@
     "docs": "react-scripts build && mv build docs",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "deploy": "git subtree push --prefix build/ origin gh-pages",
+    "deploy": "git subtree push --prefix docs/ origin gh-pages",
     "yarn": "yarn install --ignore-engines --no-lockfile",
     "build": "babel src/notifications.js --out-file index.js --presets es2015,react"
   },
