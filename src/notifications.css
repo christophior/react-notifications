@@ -20,8 +20,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.notificationIcon {
+.notificationHook {
   cursor: pointer;
+  width: 50px;
 }
 
 /* Popover */
