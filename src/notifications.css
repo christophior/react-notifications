@@ -10,6 +10,8 @@
 /* Popover */
 .Popover {
   z-index: 1200;
+  top: 50px !important;
+  position: fixed !important;
 }
 
 .Popover-body {

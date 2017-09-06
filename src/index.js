@@ -37,6 +37,6 @@ const notifications = [
 ];
 
 ReactDOM.render(
-	<Notifications open={true} notifications={notifications} />,
-	document.getElementById('root')
+	<Notifications open={false} notifications={notifications} />,
+	document.getElementById('notificationHook')
 );
