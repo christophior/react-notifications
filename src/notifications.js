@@ -76,8 +76,10 @@ class Notifications extends Component {
 	}
 	render() {
 		return (
-			<Popover isOpen={this.state.open}
+			<Popover
+				isOpen={this.state.open}
 				onOuterAction={this.closePopover}
+				enterExitTransitionDurationMs={false}
 				preferPlace={'below'}
 				tipSize={10}
 				body={
@@ -119,7 +121,9 @@ class Notifications extends Component {
 						</TabPanel>
 					</Tabs>
 				}>
-				<button className='btn-primary' onClick={this.handleClick}>click</button>
+				<svg onClick={this.handleClick} width="23px" height="26px" viewBox="-4 4 23 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
+					<path fill="#FFFFFF" d="M9.9,26.9c1,0,2.9-0.1,5.8-0.3c1-0.1,1.7-0.2,2.1-0.5c0.3-0.3,0.4-0.7,0.3-1.3c-0.2-0.6-0.5-1.4-1-2.3 c-0.3-0.6-0.6-1.6-1-2.9c-0.3-1.3-0.5-2.6-0.5-3.8c0-2.6-0.5-4.7-1.6-6.3S11.5,7,9.8,7c0-1.4-0.8-2.1-2.4-2.1c-0.2,0-0.5,0.1-1,0.2 C5.6,5.3,5.2,6,5.2,7C3.5,7,2.2,7.8,1.1,9.3s-1.6,3.7-1.6,6.3c0,1.3-0.2,2.5-0.5,3.8c-0.3,1.3-0.7,2.2-1,2.9 c-0.3,0.6-0.5,1.1-0.7,1.4c-0.5,1.2-0.6,1.9-0.2,2.2c0.4,0.3,1.2,0.5,2.5,0.6s3,0.2,5,0.3c0.1,0.7,0.4,1.2,0.9,1.6c0.5,0.4,1.1,0.7,1.7,0.7S8.6,29,9,28.5C9.5,28.1,9.8,27.5,9.9,26.9z"/>
+				</svg>
 			</Popover>
 		);
 	}
