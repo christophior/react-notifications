@@ -1,0 +1,273 @@
+:root {
+  --border-color: #CBD2D6;
+  --bg-color: #F5F7FA;
+}
+
+/* tabs to switch between panels */
+.tab-list {
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  margin: 0 0 15px;
+  padding: 0;
+  display: flex;
+}
+
+.left-tab, .right-tab {
+  display: inline-block;
+  position: relative;
+  list-style: none;
+  padding: 10px;
+  cursor: pointer;
+  background: white;
+  color: #5a5a5a;
+  width: 50%;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.left-tab {
+  border-radius: 5px 0 0 5px;
+}
+
+.right-tab {
+  border-radius: 0 5px 5px 0;
+}
+
+.left-tab.selected-tab,
+.right-tab.selected-tab {
+  background: hsl(210, 65%, 43%);
+  color: white;
+  font-weight: 400;
+}
+
+/* notifications/messages panels */
+.panel {
+  display: none;
+}
+.panel.selected-panel {
+  display: block;
+}
+
+/* notification tiles that are in the panels */
+.notification {
+  list-style-type: none;
+  border: 1px solid var(--border-color);
+  margin-bottom: 20px;
+  border-radius: 5px;
+  background: white;
+}
+
+.notification.hidden {
+	display: none;
+}
+
+.notification_header, .notification_empty_header {
+  padding: 10px 20px;
+  font-weight: 500;
+}
+
+.notification_header {
+	text-align: left;
+	height: 40px;
+	color: #640487;
+}
+
+.notification_empty_header {
+  font-size: 20px;
+  text-align: center;
+}
+
+.notification_header_smc {
+  color: #D20000;
+}
+
+.notification-dismiss:before {
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  display: inline-block;
+  position: relative;
+  top: 10px;
+  float: right;
+  cursor: pointer;
+  color: black;
+}
+
+.notification_description, .notification_empty_description {
+  padding: 0px 20px 10px 20px;
+}
+
+.notification_empty_description {
+  text-align: center;
+}
+
+.notification_link {
+  display: block;
+  border-top: 1px solid var(--border-color);
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  text-decoration: none;
+  line-height: 40px;
+  color: #0070BA;
+  font-weight: bold;
+}
+
+/* popover content */
+.tippy-tooltip-content {
+	padding: .5em;
+}
+.tippy-tooltip-content ul {
+	list-style-type: none;
+	padding-left: 0 !important;
+	margin-left: 0;
+}
+
+/* popover; mostly just pulled from tippy */
+.tippy-tooltip {
+	position: relative;
+	color: black;
+	border-radius: 8px;
+	font-size: .95rem;
+	padding: .4rem .8rem;
+	text-align: center;
+	will-change: transform;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background-color: var(--bg-color);
+  	border: 1px solid var(--border-color);
+  	width: 320px;
+  	box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+}
+.tippy-tooltip--small {
+	padding: .25rem .5rem;
+	font-size: .8rem
+}
+.tippy-tooltip--big {
+	padding: .6rem 1.2rem;
+	font-size: 1.2rem
+}
+.tippy-tooltip[data-animatefill] {
+	overflow: hidden;
+	background-color: transparent
+}
+.tippy-tooltip[data-interactive] {
+	pointer-events: auto
+}
+.tippy-tooltip[data-inertia] {
+	-webkit-transition-timing-function: cubic-bezier(.53, 1, .36, .85);
+	transition-timing-function: cubic-bezier(.53, 2, .36, .85)
+}
+.tippy-tooltip [x-arrow] {
+	position: absolute;
+	width: 0;
+	height: 0
+}
+.tippy-tooltip [x-circle] {
+	position: absolute;
+	will-change: transform;
+	background-color: #333;
+	border-radius: 50%;
+	width: 130%;
+	width: calc(110% + 2rem);
+	left: 50%;
+	top: 50%;
+	z-index: -1;
+	overflow: hidden;
+	-webkit-transition: all ease;
+	transition: all ease
+}
+.tippy-tooltip [x-circle]:before {
+	content: "";
+	padding-top: 90%;
+	float: left
+}
+@media (max-width: 450px) {
+	.tippy-popper {
+		max-width: 96%;
+		max-width: calc(100% - 20px)
+	}
+}
+.tippy-touch {
+	cursor: pointer!important
+	background: var(--bg-color) !important;
+	border: 1px solid black;
+}
+.tippy-notransition {
+	-webkit-transition: none!important;
+	transition: none!important
+}
+.tippy-popper {
+	max-width: 400px;
+	-webkit-perspective: 800px;
+	perspective: 800px;
+	z-index: 9999;
+	outline: 0;
+	-webkit-transition-timing-function: cubic-bezier(.165, .84, .44, 1);
+	transition-timing-function: cubic-bezier(.165, .84, .44, 1);
+	pointer-events: none
+}
+.tippy-popper.html-template {
+	max-width: 96%;
+	max-width: calc(100% - 20px)
+}
+.tippy-popper[x-placement^=bottom] [x-arrow] {
+	border-bottom: 7px solid #333;
+	border-right: 7px solid transparent;
+	border-left: 7px solid transparent;
+	top: -7px;
+	margin: 0 9px
+}
+.tippy-popper[x-placement^=bottom] [x-arrow].arrow-small {
+	border-bottom: 5px solid #333;
+	border-right: 5px solid transparent;
+	border-left: 5px solid transparent;
+	top: -5px
+}
+.tippy-popper[x-placement^=bottom] [x-arrow].arrow-big {
+	border-bottom: 10px solid var(--border-color);
+	border-right: 10px solid transparent;
+	border-left: 10px solid transparent;
+	top: -10px
+}
+.tippy-popper[x-placement^=bottom] .tippy-tooltip.light-theme [x-arrow] {
+	border-bottom: 7px solid #fff;
+	border-right: 7px solid transparent;
+	border-left: 7px solid transparent
+}
+.tippy-popper[x-placement^=bottom] .tippy-tooltip.light-theme [x-arrow].arrow-small {
+	border-bottom: 5px solid #fff;
+	border-right: 5px solid transparent;
+	border-left: 5px solid transparent
+}
+.tippy-popper[x-placement^=bottom] .tippy-tooltip.light-theme [x-arrow].arrow-big {
+	border-bottom: 10px solid #fff;
+	border-right: 10px solid transparent;
+	border-left: 10px solid transparent
+}
+.tippy-popper[x-placement^=bottom] .tippy-tooltip.transparent-theme [x-arrow] {
+	border-bottom: 7px solid rgba(0, 0, 0, .7);
+	border-right: 7px solid transparent;
+	border-left: 7px solid transparent
+}
+.tippy-popper[x-placement^=bottom] .tippy-tooltip.transparent-theme [x-arrow].arrow-small {
+	border-bottom: 5px solid rgba(0, 0, 0, .7);
+	border-right: 5px solid transparent;
+	border-left: 5px solid transparent
+}
+.tippy-popper[x-placement^=bottom] .tippy-tooltip.transparent-theme [x-arrow].arrow-big {
+	border-bottom: 10px solid rgba(0, 0, 0, .7);
+	border-right: 10px solid transparent;
+	border-left: 10px solid transparent
+}
+.tippy-popper[x-placement^=bottom] [data-animation=fade].enter {
+	opacity: 1;
+	-webkit-transform: translateY(10px);
+	transform: translateY(10px)
+}
+.tippy-popper[x-placement^=bottom] [data-animation=fade].leave {
+	opacity: 0;
+	-webkit-transform: translateY(10px);
+	transform: translateY(10px)
+}

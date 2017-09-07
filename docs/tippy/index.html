@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://www.paypalobjects.com/ui-web/vx-pattern-lib/2-7-9-consumer/vx-lib.css"></link>
+    <link rel="stylesheet" type="text/css" href="./tippy.css"></link>
+    <title>notifications</title>
+  </head>
+  <body>
+	<script src="https://unpkg.com/tippy.js@1.2.0/dist/tippy.min.js"></script>
+    <div id="root" style="width: 100%;margin-left: 50%;margin-top: 20px;">
+    	<!-- button where the popover is anchored, this triggers the popover-->
+    	<button class="notificationBtn" title="asdf">click me</button>
+		
+		<!-- everything in this div (#notificationBody) is what's thrown into the popover -->
+		<!--
+			we bind events to the copy of this in the popover, manipulate the items in this div
+			then just call the popover to grab the updated that are in here
+		-->
+		<div id="notificationBody" style="display: none;">
+			<div id="tab-list" class="tab-list">
+				<li id="left-tab" data-panel="#tab1" class="left-tab selected-tab">notifications</li>
+				<li id="right-tab" data-panel="#tab2" class="right-tab">messages</li>
+			</div>
+			<ul class="panel selected-panel" id="tab1">
+				<li id="notification1" class="notification">
+					<div class="notification_header">
+						Notification 1
+						<span class="vx_icon vx_icon-small vx_icon-close-small notification-dismiss" data-id="1"></span>
+					</div>
+					<div class="notification_description">
+					some random description ajkhsd ajhds fghakjsd hg akjds hg akjds hg akjdsv hg akjds hg akjds
+					</div>
+					<a href="#" class="notification_link">click here</a>
+				</li>
+				<li id="notification2" class="notification">
+					<div class="notification_header">
+						Notification 1
+						<span class="vx_icon vx_icon-small vx_icon-close-small notification-dismiss" data-id="2"></span>
+					</div>
+					<div class="notification_description">
+						some random description
+					</div>
+					<a href="#" class="notification_link">click here</a>
+				</li>
+				<li id="emptyNotification" class="notification hidden">
+					<div class="notification_empty_header">
+						You don't have any new notifications
+					</div>
+					<div class="notification_empty_description">
+						But check out some handy tips and tricks below.
+					</div>
+				</li>
+			</ul>
+			<ul class="panel" id="tab2">
+				<li id="notification3" class="notification">
+					<div class="notification_header notification_header_smc">
+						Notification 3
+						<span class="vx_icon vx_icon-small vx_icon-close-small notification-dismiss" data-id="3"></span>
+					</div>
+					<div class="notification_description">
+						sakj asjkd jahsbd fjabsdjf gbadjs
+					</div>
+					<a href="#" class="notification_link">click here</a>
+				</li>
+				<li id="emptyNotification" class="notification hidden">
+					<div class="notification_empty_header">
+						You don't have any new messages
+					</div>
+					<div class="notification_empty_description">
+						But check out some handy tips and tricks below.
+					</div>
+				</li>
+			</ul>
+		</div>
+    </div>
+    <script type="text/javascript" src="./tippy.js"></script>
+  </body>
+</html>
